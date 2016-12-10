@@ -1,0 +1,24 @@
+{
+  "name": "es5-string-binder",
+  "description": "String and Object binder for ES5",
+  "main": "",
+  "authors": [
+    "hyunjun19"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "string",
+    "object",
+    "bind",
+    "binder",
+    "format"
+  ],
+  "homepage": "https://github.com/hyunjun19/es5-string-binder",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
