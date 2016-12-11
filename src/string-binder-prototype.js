@@ -19,8 +19,8 @@
 		param = arguments;
 	}
 
-	var ret = str.replace(/\{[A-Za-z0-9\_\.]+\}/g, function(key, ki){
-		val = param[key.substring(1, key.length - 1)];
+	var ret = str.replace(/\{(.[^\}]*)\}/g, function(key, ki){
+		val = param[arguments[1]];
 
 		if (val === undefined || val === null) { val = ''; }
 

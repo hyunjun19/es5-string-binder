@@ -1,6 +1,6 @@
 {
   "name": "es5-string-binder",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "String and Object binder for ES5",
   "scripts": {
     "test": "mocha ./test"
