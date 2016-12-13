@@ -20,7 +20,7 @@
 	}
 
 	var ret = str.replace(/\{(.[^\}]*)\}/g, function(key, ki){
-		val = param[arguments[1]];
+		var val = param[arguments[1]];
 
 		if (val === undefined || val === null) { val = ''; }
 
