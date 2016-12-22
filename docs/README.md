@@ -39,6 +39,6 @@ console.log(foo); // No pain No gain
 var bar = 'No {0} No {1}'.bind('pain', 'gain');
 console.log(bar); // No pain No gain
 ```
-<p data-height="265" data-theme-id="0" data-slug-hash="WoWXmd" data-default-tab="result" data-user="hj-park" data-embed-version="2" data-pen-title="es5-string-binder-prototype" class="codepen">See the Pen <a href="http://codepen.io/hj-park/pen/WoWXmd/">es5-string-binder-prototype</a> by HJ.Park (<a href="http://codepen.io/hj-park">@hj-park</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<p data-height="265" data-theme-id="0" data-slug-hash="WoWXmd" data-default-tab="js,result" data-user="hj-park" data-embed-version="2" data-pen-title="es5-string-binder-prototype" data-preview="true" class="codepen">See the Pen <a href="http://codepen.io/hj-park/pen/WoWXmd/">es5-string-binder-prototype</a> by HJ.Park (<a href="http://codepen.io/hj-park">@hj-park</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
