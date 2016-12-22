@@ -18,6 +18,7 @@ $ bower install --save es5-string-binder
 ```
 
 # How to use
+## function
 ```js
 // use function and object parameter
 var foo = bind('No {key1} No {key2}', { key1: 'pain', key2: 'gain' });
@@ -30,6 +31,7 @@ console.log(bar); // No pain No gain
 <p data-height="265" data-theme-id="0" data-slug-hash="BQEmzK" data-default-tab="js,result" data-user="hj-park" data-embed-version="2" data-pen-title="es5-string-binder-function" class="codepen">See the Pen <a href="http://codepen.io/hj-park/pen/BQEmzK/">es5-string-binder-function</a> by HJ.Park (<a href="http://codepen.io/hj-park">@hj-park</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
+## prototype
 ```js
 // use prototype and object parameter
 var foo = 'No {key1} No {key2}'.bind({ key1: 'pain', key2: 'gain' });
