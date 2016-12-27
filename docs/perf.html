@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>es5-string-binder Performance Test</title>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/pure/0.6.1/pure-min.css">
+    </head>
+    <body>
+        <div class="pure-g">
+            <div class="pure-u-1-24"></div>
+            <div class="pure-u-22-24">
+                <header>
+                    <h1>es5-string-binder Performance Test</h1>
+                </header>
+
+                <table class="pure-table pure-table-bordered">
+                    <thead>
+                        <tr>
+                            <th>method</th>
+                            <th>elapsed time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="console"></tbody>
+                </table>
+            </div>
+            <div class="pure-u-1-24"></div>
+        </div>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/g/mustache.js@2.3.0,jquery@3.1.1"></script>
+        <script type="text/javascript" src="../dist/string-binder-prototype.js"></script>
+        <script type="text/javascript">
+            var $console  = $('#console');
+            var loopCount = 1000;
+            var pain = 'pain';
+            var gain = 'gain';
+            var p, g;
+            var output = {
+                binder: [],
+                plus: [],
+                join: []
+            };
+            function log(method, elapsedMs){
+                $console.append('<tr><td>{0}</td><td style="text-align:right;">{1}ms</td></tr>'.bind(method, elapsedMs));
+            }
+
+            (function(){
+                var start = Date.now();
+                console.time('plus');
+                for (var i = 0; i < loopCount; i++) {
+                    p = pain + i;
+                    g = gain + i;
+                    output.plus.push('No ' + p + ' No ' + g + ', No ' + p + ' No ' + g + ', No ' + p + ' No ' + g + ', No ' + p + ' No ' + g + ', No ' + p + ' No ' + g + ', No ' + p + ' No ' + gain);
+                }
+                console.timeEnd('plus');
+                var finish = Date.now();
+                log('plus', finish - start);
+            })();
+
+            (function(){
+                var start = Date.now();
+                console.time('join');
+                for (var i = 0; i < loopCount; i++) {
+                    p = pain + i;
+                    g = gain + i;
+                    output.join.push(['No ', p, ' No ', g, ', No ', p, ' No ', g, ', No ', p, ' No ', g, ', No ', p, ' No ', g, ', No ', p, ' No ', g, ', No ', p, ' No ', gain].join(''));
+                }
+                console.timeEnd('join');
+                var finish = Date.now();
+                log('join', finish - start);
+            })();
+
+            (function(){
+                var start = Date.now();
+                console.time('binder');
+                var param = {};
+                for (var i = 0; i < loopCount; i++) {
+                    param.p = pain + i;
+                    param.g = gain + i;
+                    output.binder.push('No {p} No {g}, No {p} No {g}, No {p} No {g}, No {p} No {g}, No {p} No {g}, No {p} No {g}'.bind(param));
+                }
+                console.timeEnd('binder');
+                var finish = Date.now();
+                log('binder', finish - start);
+            })();
+
+            (function(){
+                var start = Date.now();
+                console.time('mustache');
+                var param = {};
+                var template = 'No {p} No {{g}}, No {{p}} No {{g}}, No {{p}} No {{g}}, No {{p}} No {{g}}, No {{p}} No {{g}}, No {{p}} No {{g}}';
+                Mustache.parse(template);
+                for (var i = 0; i < loopCount; i++) {
+                    param.p = pain + i;
+                    param.g = gain + i;
+                    output.binder.push(Mustache.render(template, param));
+                }
+                console.timeEnd('mustache');
+                var finish = Date.now();
+                log('mustache', finish - start);
+            })();
+
+        </script>
+
+        <div id="disqus_thread"></div>
+        <script>
+            var disqus_config = function () {
+                this.page.url = location.pathname;
+                this.page.identifier = 'perf';
+            };
+            (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = '//es5-string-binder.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    </body>
+</html>
