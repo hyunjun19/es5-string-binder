@@ -15,6 +15,7 @@
             <div class="pure-u-22-24">
                 <header>
                     <h1>es5-string-binder Performance Test</h1>
+                    <h3 id="env"></h3>
                 </header>
 
                 <table class="pure-table pure-table-bordered">
@@ -43,9 +44,12 @@
                 plus: [],
                 join: []
             };
+
             function log(method, elapsedMs){
                 $console.append('<tr><td>{0}</td><td style="text-align:right;">{1}ms</td></tr>'.bind(method, elapsedMs));
             }
+
+            $('#env').text(navigator.userAgent);
 
             (function(){
                 var start = Date.now();
