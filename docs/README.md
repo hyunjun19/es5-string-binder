@@ -44,3 +44,5 @@ console.log(bar); // No pain No gain
 <p data-height="265" data-theme-id="0" data-slug-hash="WoWXmd" data-default-tab="js,result" data-user="hj-park" data-embed-version="2" data-pen-title="es5-string-binder-prototype" class="codepen">See the Pen <a href="http://codepen.io/hj-park/pen/WoWXmd/">es5-string-binder-prototype</a> by HJ.Park (<a href="http://codepen.io/hj-park">@hj-park</a>) on <a href="http://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
+# Performance
+[Performance test page](https://hyunjun19.github.io/es5-string-binder/perf.html)
