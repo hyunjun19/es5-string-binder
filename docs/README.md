@@ -18,6 +18,9 @@ $ bower install --save es5-string-binder
 ```
 
 # How to use
+
+function vs prototype
+
 ## function
 ```js
 // use function and object parameter
